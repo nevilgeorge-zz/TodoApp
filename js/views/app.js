@@ -87,7 +87,7 @@ app.AppView = Backbone.View.extend({
 	// generate the attributes for a new todo item
 	newAttributes: function() {
 		return {
-			title: tis.$input.val().trim(),
+			title: this.$input.val().trim(),
 			order: app.Todos.nextOrder(),
 			completed: false
 		};
@@ -95,6 +95,7 @@ app.AppView = Backbone.View.extend({
 
 	// if you hit the return in the main input field, create new Todo model
 	createOnEnter: function(event) {
+		// check if the event being passed is in fact the key press
 		if (event.which !== ENTER_KEY || !this.$input.val().trim()) {
 			return;
 		}
