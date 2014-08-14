@@ -41,7 +41,20 @@ app.TodoView = Backbone.View.extend({
 
 	// close the "editing mode", saving changes to the todo
 	close: function() {
-		
+		var value = this.$input.val().trim();
+
+		if (value) {
+			this.model.save({ title: value });
+		}
+
+		this.$el.removeClass('editing');
+	},
+
+	// if you hit 'enter', we're done editing the item
+	updateOnEnter: function(event) {
+		if (event.which === ENTER_KEY) {
+			this.close();
+		}
 	}
 
 });
