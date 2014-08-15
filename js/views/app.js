@@ -24,7 +24,7 @@ app.AppView = Backbone.View.extend({
 	// bind the relevant items to the Todos collection, when items are add or changed
 	initialize: function() {
 		// store important parts of HTML in local cache
-		this.alLCheckbox = this.$('#toggle-all')[0];
+		this.allCheckbox = this.$('#toggle-all')[0];
 		this.$input = this.$('#new-todo');
 		this.$footer = this.$('#footer');
 		this.$main = this.$('#main');
@@ -62,7 +62,7 @@ app.AppView = Backbone.View.extend({
 		}
 
 		this.allCheckbox.checked = !remaining;
-	}
+	},
 
 	// Add a single todo item to the list by creating a view and appending it to the <ul>
 	addOne: function(todo) {
